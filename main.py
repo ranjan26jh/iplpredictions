@@ -24,7 +24,7 @@ cities = [
 ]
 
 # Load the machine learning model
-pipe = pickle.load(open('pipe.pkl', 'rb'))
+pipe = pickle.load(open('/mount/src/iplpredictions/pipe.pkl', 'rb'))
 st.title('IPL Win Predictor')
 
 # Create columns for layout
