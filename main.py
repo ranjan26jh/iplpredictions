@@ -1,6 +1,10 @@
 import streamlit as st
+import os
 import pickle
 import pandas as pd
+
+# Get the app's root directory
+app_root = os.path.dirname(__file__)
 
 # Define the teams and cities
 teams = [
@@ -23,8 +27,12 @@ cities = [
     'Sharjah', 'Mohali', 'Bengaluru'
 ]
 
-# Load the machine learning model
-pipe = pickle.load(open('src/iplpredictions/pipe.pkl', 'rb'))
+# Construct the absolute path to pipe.pkl
+pipe_path = os.path.join(app_root, 'src', 'iplpredictions', 'pipe.pkl')
+
+# Load the pickled model
+pipe = pickle.load(open(pipe_path, 'rb'))
+
 st.title('IPL Win Predictor')
 
 # Create columns for layout
